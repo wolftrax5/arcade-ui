@@ -13,11 +13,11 @@
 ## Install (consumers)
 
 ```bash
-pnpm add arcade-ui
+pnpm add @wolftrax/arcade-ui
 ```
 
 ```tsx
-import { ArcadeButton } from 'arcade-ui';
+import { ArcadeButton } from '@wolftrax/arcade-ui';
 
 export function Start() {
   return <ArcadeButton variant="start">Press Start</ArcadeButton>;

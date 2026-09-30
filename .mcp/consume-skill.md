@@ -5,7 +5,7 @@ Use this skill when adding Arcade-UI to an app, wiring 16-bit components, or mat
 ## Install
 
 ```bash
-pnpm add arcade-ui
+pnpm add @wolftrax/arcade-ui
 ```
 
 Peer dependencies: `react` and `react-dom` >= 18.
@@ -20,10 +20,10 @@ import {
   PixelInput,
   RetroBadge,
   InventoryChip,
-} from 'arcade-ui';
+} from '@wolftrax/arcade-ui';
 ```
 
-Do not import from `arcade-ui/src`. The package `exports` map exposes `.` and `./dist` only.
+Do not import from `@wolftrax/arcade-ui/src`. The package `exports` map exposes `.` and `./dist` only.
 
 ## Fonts
 
@@ -56,7 +56,7 @@ Host apps should not restyle these components with utility CSS. If a wrapper is 
 ## Example
 
 ```tsx
-import { ArcadeButton, InventoryChip, PixelInput, RetroBadge } from 'arcade-ui';
+import { ArcadeButton, InventoryChip, PixelInput, RetroBadge } from '@wolftrax/arcade-ui';
 
 export function ContinueScreen() {
   return (

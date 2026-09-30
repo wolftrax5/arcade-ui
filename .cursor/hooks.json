@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/gate-deploy.mjs",
+        "failClosed": true,
+        "timeout": 300
+      }
+    ]
+  }
+}
