@@ -1,0 +1,83 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 10px 6px 8px;
+  border: 0;
+  background: var(--arcade-panel);
+  color: var(--arcade-white);
+  font-family: var(--arcade-font-display);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  appearance: none;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  transform: translateY(0);
+  transition: transform 40ms steps(1, end), box-shadow 40ms steps(1, end);
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow);
+}
+
+.chip:hover:not(:disabled) {
+  color: var(--arcade-cyan);
+}
+
+.chip:focus-visible {
+  outline: none;
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
+    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-cyan);
+}
+
+.chip:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.selected {
+  background: var(--arcade-muted);
+  color: var(--arcade-yellow);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background: var(--arcade-ink);
+  color: var(--arcade-yellow);
+  font-size: 12px;
+  line-height: 1;
+  image-rendering: pixelated;
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.icon img,
+.icon svg,
+.icon canvas {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.label {
+  position: relative;
+  top: 1px;
+}
+
+.qty {
+  position: relative;
+  top: 1px;
+  color: var(--arcade-cyan);
+}

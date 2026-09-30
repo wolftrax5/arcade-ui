@@ -1,0 +1,71 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--arcade-panel);
+  color: var(--arcade-white);
+  font-family: var(--arcade-font-display);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.lamp {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.text {
+  position: relative;
+  top: 1px;
+}
+
+.idle .lamp {
+  background: var(--arcade-muted);
+}
+
+.ok {
+  color: var(--arcade-cyan);
+}
+
+.ok .lamp {
+  background: var(--arcade-cyan);
+}
+
+.warn {
+  color: var(--arcade-yellow);
+}
+
+.warn .lamp {
+  background: var(--arcade-yellow);
+}
+
+.alert {
+  color: var(--arcade-red);
+}
+
+.alert .lamp {
+  background: var(--arcade-red);
+  animation: lampBlink 0.8s steps(1, end) infinite;
+}
+
+@keyframes lampBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.15;
+  }
+}

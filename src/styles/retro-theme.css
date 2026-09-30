@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=block');
+
+:root {
+  --arcade-red: #ff0044;
+  --arcade-cyan: #00ffcc;
+  --arcade-yellow: #ffd700;
+  --arcade-purple: #aa00ff;
+  --arcade-orange: #ff8800;
+  --arcade-black: #050508;
+  --arcade-ink: #0a0a12;
+  --arcade-panel: #141422;
+  --arcade-muted: #2a2a3a;
+  --arcade-white: #f4f4f0;
+  --arcade-shadow: #000000;
+  --arcade-pixel: 2px;
+  --arcade-font-display: 'Press Start 2P', monospace;
+  --arcade-font-body: 'VT323', 'Press Start 2P', monospace;
+  --arcade-pixel-border:
+    var(--arcade-pixel) 0 0 var(--arcade-black),
+    calc(var(--arcade-pixel) * -1) 0 0 var(--arcade-black),
+    0 calc(var(--arcade-pixel) * -1) 0 var(--arcade-black),
+    0 var(--arcade-pixel) 0 var(--arcade-black);
+  --arcade-drop-shadow:
+    calc(var(--arcade-pixel) * 2) calc(var(--arcade-pixel) * 2) 0 var(--arcade-shadow);
+}
+
+html,
+body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+}
+
+html,
+body {
+  background: var(--arcade-ink);
+  color: var(--arcade-white);
+  font-family: var(--arcade-font-body);
+}
+
+img,
+canvas,
+svg,
+video {
+  image-rendering: pixelated;
+}

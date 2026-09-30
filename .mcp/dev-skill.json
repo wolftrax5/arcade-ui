@@ -1,0 +1,43 @@
+{
+  "name": "arcade-ui-dev",
+  "version": "0.1.0",
+  "description": "Agent instructions for building and extending the Arcade-UI 16-bit React component library. Use when scaffolding components, editing CSS Modules, or publishing Arcade-UI.",
+  "ponytail": {
+    "type": "component-library",
+    "command": "pnpm scaffold <ComponentName>",
+    "script": "scripts/ponytail-scaffold.mjs"
+  },
+  "stack": {
+    "framework": "react",
+    "language": "typescript",
+    "styling": "css-modules",
+    "docs": "storybook@8",
+    "bundler": "tsup"
+  },
+  "layout": {
+    "componentDir": "src/components/{Name}/",
+    "files": ["{Name}.tsx", "{Name}.module.css", "{Name}.stories.tsx"],
+    "barrel": "src/index.ts",
+    "theme": "src/styles/retro-theme.css"
+  },
+  "cssArchitecture": {
+    "typography": "Use --arcade-font-display (Press Start 2P) for controls and --arcade-font-body (VT323) for supporting copy.",
+    "antiAliasing": "Force image-rendering: pixelated; -webkit-font-smoothing: none; font-smooth: never on painted surfaces.",
+    "borders": "Never use CSS border. Build pixel edges and solid drop-shadows with box-shadow layers or the --arcade-pixel-border / --arcade-drop-shadow variables.",
+    "interaction": "Active states translate down the Y-axis and collapse the drop-shadow to simulate an arcade button press. Use steps() timing, not easing curves."
+  },
+  "workflow": [
+    "Run pnpm scaffold ComponentName (Ponytail) instead of inventing a new folder shape.",
+    "Keep public props in the component file and re-export types from src/index.ts.",
+    "Import styles from the sibling *.module.css file only. Do not add Tailwind or utility frameworks.",
+    "Add a Storybook story with autodocs, using the Arcade-UI/{Name} title.",
+    "Use tokens from retro-theme.css (#FF0044, #00FFCC, #FFD700, #AA00FF, #0A0A12).",
+    "Verify the arcade press motion and pixel edges before finishing."
+  ],
+  "doNot": [
+    "Do not use Tailwind, CSS-in-JS, or utility class frameworks.",
+    "Do not emit CSS border, border-radius curves, or blur shadows.",
+    "Do not bundle react or react-dom. They are peer dependencies.",
+    "Do not export files from src/ outside the barrel."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "framework": "react",
+  "css": "css-modules",
+  "typescript": true,
+  "scaffold": {
+    "path": "src/components",
+    "templates": "templates/component",
+    "storybook": true,
+    "barrel": "src/index.ts",
+    "skill": ".mcp/dev-skill.json"
+  }
+}

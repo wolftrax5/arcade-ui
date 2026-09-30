@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Arcade-UI/Introduction" />
+
+# Arcade-UI
+
+A **16-bit retro** React component library. Phase 1 ships the cabinet controls you need to start a game:
+
+- `ArcadeButton` — primary, danger, and start variants with a physical press
+- `PixelInput` — rigid pixel field with a blinking block cursor
+- `RetroBadge` — compact status lamp
+- `InventoryChip` — selectable item pill with an optional pixel icon
+
+## Aesthetic rules
+
+1. Monospace pixel type (`Press Start 2P` / `VT323`)
+2. `image-rendering: pixelated` and `font-smooth: never`
+3. No CSS `border`. Pixel edges and drop-shadows are layered `box-shadow`
+4. Active controls translate down the Y-axis and collapse the drop-shadow
+
+## Install
+
+```bash
+pnpm add arcade-ui
+```
+
+```tsx
+import { ArcadeButton } from 'arcade-ui';
+
+export function Continue() {
+  return <ArcadeButton variant="start">Press Start</ArcadeButton>;
+}
+```
+
+CSS Modules are bundled and injected when the package is imported. Keep `react` and `react-dom` as peer dependencies.
