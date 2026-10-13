@@ -17,3 +17,15 @@ export type {
 
 export { InventoryChip } from './components/InventoryChip/InventoryChip';
 export type { InventoryChipProps } from './components/InventoryChip/InventoryChip';
+
+export { Slider } from './components/Slider/Slider';
+export type { SliderProps } from './components/Slider/Slider';
+
+export { Checkbox } from './components/Checkbox/Checkbox';
+export type { CheckboxProps } from './components/Checkbox/Checkbox';
+
+export { RadioGroup } from './components/RadioGroup/RadioGroup';
+export type {
+  RadioGroupProps,
+  RadioOption,
+} from './components/RadioGroup/RadioGroup';

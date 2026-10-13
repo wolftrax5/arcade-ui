@@ -1,0 +1,106 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+  font-family: var(--arcade-font-display);
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.root[data-disabled] {
+  opacity: 0.45;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 4px;
+  color: var(--arcade-cyan);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.option[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--arcade-panel);
+  transform: translateY(0);
+  transition: transform 40ms steps(1, end), box-shadow 40ms steps(1, end);
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow);
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: transparent;
+}
+
+.option:hover:not([data-disabled]) .dot {
+  filter: brightness(1.08);
+}
+
+.option:active:not([data-disabled]) .dot {
+  transform: translateY(2px);
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.input:focus-visible + .dot {
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
+    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-yellow);
+}
+
+.input:checked + .dot::after {
+  background: var(--arcade-yellow);
+  box-shadow:
+    2px 0 0 var(--arcade-yellow),
+    -2px 0 0 var(--arcade-yellow),
+    0 2px 0 var(--arcade-yellow),
+    0 -2px 0 var(--arcade-yellow);
+}
+
+.label {
+  color: var(--arcade-white);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
