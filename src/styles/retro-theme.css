@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=block');
 
-:root {
+:root,
+[data-theme='dark'] {
   --arcade-red: #ff0044;
   --arcade-cyan: #00ffcc;
   --arcade-yellow: #ffd700;
@@ -12,9 +13,34 @@
   --arcade-muted: #2a2a3a;
   --arcade-white: #f4f4f0;
   --arcade-shadow: #000000;
+  --arcade-fg: #f4f4f0;
+  --arcade-fg-on-accent: #0a0a12;
+  --arcade-fg-on-danger: #f4f4f0;
+  /* --arcade-bg aliases ink. Declared inside each theme block so inline
+     overrides on `ink` propagate through the wrapper's own scope. */
+  --arcade-bg: var(--arcade-ink);
+}
+
+[data-theme='light'] {
+  --arcade-red: #d60036;
+  --arcade-cyan: #00b5a0;
+  --arcade-yellow: #d49800;
+  --arcade-purple: #8e00d6;
+  --arcade-orange: #d66600;
+  --arcade-black: #050508;
+  --arcade-ink: #ece8d4;
+  --arcade-panel: #ddd8c0;
+  --arcade-muted: #a89f80;
+  --arcade-white: #ffffff;
+  --arcade-shadow: #262520;
+  --arcade-fg: #0a0a12;
+  --arcade-fg-on-accent: #0a0a12;
+  --arcade-fg-on-danger: #f4f4f0;
+  --arcade-bg: var(--arcade-ink);
+}
+
+:root {
   --arcade-pixel: 2px;
-  --arcade-font-display: 'Press Start 2P', monospace;
-  --arcade-font-body: 'VT323', 'Press Start 2P', monospace;
   --arcade-pixel-border:
     var(--arcade-pixel) 0 0 var(--arcade-black),
     calc(var(--arcade-pixel) * -1) 0 0 var(--arcade-black),
@@ -39,9 +65,21 @@ body,
 
 html,
 body {
-  background: var(--arcade-ink);
-  color: var(--arcade-white);
-  font-family: var(--arcade-font-body);
+  background: var(--arcade-bg);
+  color: var(--arcade-fg);
+}
+
+/* The ThemeProvider wrapper paints itself so swapping modes propagates to
+   descendants whose background would otherwise show through to the body. */
+[data-arcade-theme-root] {
+  background: var(--arcade-bg);
+  color: var(--arcade-fg);
+}
+
+body {
+  font-family: 'VT323', 'Press Start 2P', monospace;
+  font-size: 20px;
+  line-height: 1.4;
 }
 
 img,
@@ -49,4 +87,37 @@ canvas,
 svg,
 video {
   image-rendering: pixelated;
+}
+
+/* Typography — local styles, not variables. */
+.arcade-style-display {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.arcade-style-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.arcade-style-caption {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.arcade-style-body {
+  font-family: 'VT323', 'Press Start 2P', monospace;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
 }

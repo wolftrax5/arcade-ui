@@ -1,7 +1,11 @@
 .sb-show-main {
-  background: #0a0a12;
+  background: var(--arcade-bg, #0a0a12);
 }
 
 .docs-story {
-  background: #0a0a12;
+  background: var(--arcade-bg, #0a0a12);
+}
+
+[data-arcade-theme-root] {
+  min-height: 100%;
 }

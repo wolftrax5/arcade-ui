@@ -6,12 +6,7 @@
   padding: 6px 10px 6px 8px;
   border: 0;
   background: var(--arcade-panel);
-  color: var(--arcade-white);
-  font-family: var(--arcade-font-display);
-  font-size: 8px;
-  line-height: 1.4;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  color: var(--arcade-fg);
   cursor: pointer;
   appearance: none;
   image-rendering: pixelated;
@@ -29,7 +24,7 @@
 .chip:focus-visible {
   outline: none;
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-cyan);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-cyan);
 }
 
 .chip:active:not(:disabled) {
@@ -55,7 +50,7 @@
   width: 16px;
   height: 16px;
   overflow: hidden;
-  background: var(--arcade-ink);
+  background: var(--arcade-bg);
   color: var(--arcade-yellow);
   font-size: 12px;
   line-height: 1;

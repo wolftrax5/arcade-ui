@@ -4,7 +4,6 @@
   gap: 10px;
   width: 100%;
   max-width: 280px;
-  font-family: var(--arcade-font-display);
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   font-smooth: never;
@@ -16,9 +15,6 @@
 
 .label {
   color: var(--arcade-cyan);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 .input {
@@ -41,7 +37,7 @@
 }
 
 .input:focus-visible {
-  box-shadow: 0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-cyan);
+  box-shadow: 0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-cyan);
 }
 
 .input::-webkit-slider-runnable-track {

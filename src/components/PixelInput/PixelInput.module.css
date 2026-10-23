@@ -4,14 +4,10 @@
   gap: 8px;
   width: 100%;
   max-width: 320px;
-  font-family: var(--arcade-font-display);
 }
 
 .label {
   color: var(--arcade-cyan);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   font-smooth: never;
@@ -26,7 +22,7 @@
 
 .field[data-focused] {
   box-shadow: var(--arcade-pixel-border),
-    0 0 0 2px var(--arcade-ink),
+    0 0 0 2px var(--arcade-bg),
     0 0 0 4px var(--arcade-cyan);
 }
 
@@ -37,11 +33,7 @@
   padding: 10px 12px;
   border: 0;
   background: transparent;
-  color: var(--arcade-white);
-  font-family: var(--arcade-font-display);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
+  color: var(--arcade-fg);
   caret-color: transparent;
   appearance: none;
   outline: none;
@@ -61,10 +53,6 @@
   overflow: hidden;
   max-width: calc(100% - 24px);
   color: transparent;
-  font-family: var(--arcade-font-display);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
   white-space: pre;
   pointer-events: none;
 }

@@ -1,6 +1,8 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import type { ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
 import { useId } from 'react';
 import styles from './RadioGroup.module.css';
+import { textStyleClass, type TextStyle } from '../../theme/tokens';
+import { useArcadeSound } from '../../theme/ThemeProvider';
 
 export interface RadioOption {
   value: string;
@@ -15,6 +17,10 @@ export interface RadioGroupProps
   value?: string;
   defaultValue?: string;
   name?: string;
+  /** Type style for the legend and option labels. Defaults to `label`. */
+  textStyle?: TextStyle;
+  /** Opt out of the select sound for this instance. */
+  sound?: boolean;
 }
 
 export function RadioGroup({
@@ -26,10 +32,21 @@ export function RadioGroup({
   defaultValue,
   disabled,
   onChange,
+  textStyle = 'label',
+  sound,
   ...props
 }: RadioGroupProps) {
   const groupId = useId();
   const groupName = name ?? groupId;
+  const play = useArcadeSound(sound);
+  const styleClass = textStyleClass(textStyle);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (!disabled && !event.target.disabled) {
+      play('select');
+    }
+    onChange?.(event);
+  };
 
   return (
     <fieldset
@@ -37,7 +54,9 @@ export function RadioGroup({
       data-disabled={disabled || undefined}
       disabled={disabled}
     >
-      {label ? <legend className={styles.legend}>{label}</legend> : null}
+      {label ? (
+        <legend className={[styles.legend, styleClass].join(' ')}>{label}</legend>
+      ) : null}
       <div className={styles.options} role="presentation">
         {options.map((option) => {
           const optionId = `${groupId}-${option.value}`;
@@ -62,10 +81,12 @@ export function RadioGroup({
                   value === undefined ? defaultValue === option.value : undefined
                 }
                 disabled={optionDisabled}
-                onChange={onChange}
+                onChange={handleChange}
               />
               <span className={styles.dot} aria-hidden />
-              <span className={styles.label}>{option.label}</span>
+              <span className={[styles.label, styleClass].join(' ')}>
+                {option.label}
+              </span>
             </label>
           );
         })}

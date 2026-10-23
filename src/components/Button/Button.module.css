@@ -7,12 +7,7 @@
   padding: 12px 18px;
   border: 0;
   background: var(--arcade-cyan);
-  color: var(--arcade-ink);
-  font-family: var(--arcade-font-display);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  color: var(--arcade-fg-on-accent);
   cursor: pointer;
   user-select: none;
   appearance: none;
@@ -32,7 +27,7 @@
 .button:focus-visible {
   outline: none;
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-cyan);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-cyan);
 }
 
 .button:active:not(:disabled) {
@@ -55,30 +50,30 @@
 
 .primary {
   background: var(--arcade-cyan);
-  color: var(--arcade-ink);
+  color: var(--arcade-fg-on-accent);
 }
 
 .danger {
   background: var(--arcade-red);
-  color: var(--arcade-white);
+  color: var(--arcade-fg-on-danger);
 }
 
 .danger:focus-visible {
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-red);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-red);
 }
 
 .start {
   min-width: 168px;
   padding: 14px 22px;
   background: var(--arcade-yellow);
-  color: var(--arcade-ink);
+  color: var(--arcade-fg-on-accent);
   animation: startPulse 1.2s steps(2, end) infinite;
 }
 
 .start:focus-visible {
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-yellow);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-yellow);
 }
 
 .start:active:not(:disabled) {

@@ -5,7 +5,6 @@
   margin: 0;
   cursor: pointer;
   user-select: none;
-  font-family: var(--arcade-font-display);
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   font-smooth: never;
@@ -58,7 +57,7 @@
 
 .input:focus-visible + .box {
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-cyan);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-cyan);
 }
 
 .input:checked + .box {
@@ -66,18 +65,14 @@
 }
 
 .input:checked + .box::after {
-  background: var(--arcade-ink);
+  background: var(--arcade-fg-on-accent);
   box-shadow:
-    2px 0 0 var(--arcade-ink),
-    -2px 0 0 var(--arcade-ink),
-    0 2px 0 var(--arcade-ink),
-    0 -2px 0 var(--arcade-ink);
+    2px 0 0 var(--arcade-fg-on-accent),
+    -2px 0 0 var(--arcade-fg-on-accent),
+    0 2px 0 var(--arcade-fg-on-accent),
+    0 -2px 0 var(--arcade-fg-on-accent);
 }
 
 .label {
-  color: var(--arcade-white);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  line-height: 1.4;
+  color: var(--arcade-fg);
 }

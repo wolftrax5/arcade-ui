@@ -7,9 +7,14 @@ import {
   useState,
 } from 'react';
 import styles from './PixelInput.module.css';
+import { textStyleClass, type TextStyle } from '../../theme/tokens';
 
 export interface PixelInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string;
+  /** Type style for the input value. Defaults to `display`. */
+  textStyle?: TextStyle;
+  /** Type style for the label. Defaults to `label`. */
+  labelStyle?: TextStyle;
 }
 
 export function PixelInput({
@@ -22,6 +27,8 @@ export function PixelInput({
   onFocus,
   onBlur,
   placeholder,
+  textStyle = 'display',
+  labelStyle = 'label',
   ...props
 }: PixelInputProps) {
   const generatedId = useId();
@@ -32,6 +39,7 @@ export function PixelInput({
   const [cursorLeft, setCursorLeft] = useState(8);
 
   const displayValue = value !== undefined ? String(value) : uncontrolled;
+  const valueStyleClass = textStyleClass(textStyle);
 
   useLayoutEffect(() => {
     const mirror = mirrorRef.current;
@@ -51,18 +59,25 @@ export function PixelInput({
   return (
     <div className={[styles.wrap, className].filter(Boolean).join(' ')}>
       {label ? (
-        <label className={styles.label} htmlFor={inputId}>
+        <label
+          className={[styles.label, textStyleClass(labelStyle)].join(' ')}
+          htmlFor={inputId}
+        >
           {label}
         </label>
       ) : null}
       <div className={styles.field} data-focused={focused || undefined}>
-        <span ref={mirrorRef} className={styles.mirror} aria-hidden>
+        <span
+          ref={mirrorRef}
+          className={[styles.mirror, valueStyleClass].join(' ')}
+          aria-hidden
+        >
           {displayValue}
         </span>
         <input
           {...props}
           id={inputId}
-          className={styles.input}
+          className={[styles.input, valueStyleClass].join(' ')}
           value={value}
           defaultValue={defaultValue}
           placeholder={placeholder}

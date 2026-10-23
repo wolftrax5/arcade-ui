@@ -29,3 +29,33 @@ export type {
   RadioGroupProps,
   RadioOption,
 } from './components/RadioGroup/RadioGroup';
+
+export { VariablesPanel } from './components/VariablesPanel/VariablesPanel';
+export type { VariablesPanelProps } from './components/VariablesPanel/VariablesPanel';
+
+// Theme API
+export {
+  ThemeProvider,
+  useTheme,
+  useArcadeSound,
+} from './theme/ThemeProvider';
+export type {
+  ThemeProviderProps,
+  ThemeContextValue,
+} from './theme/ThemeProvider';
+export {
+  colorTokenKeys,
+  colorTokenGroups,
+  defaultColors,
+  textStyles,
+  textStyleClass,
+  cssVar,
+} from './theme/tokens';
+export type {
+  ColorMap,
+  ColorToken,
+  ColorCollection,
+  ThemeMode,
+  TextStyle,
+} from './theme/tokens';
+export type { SoundCue } from './theme/sound';

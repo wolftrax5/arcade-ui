@@ -6,7 +6,6 @@
   padding: 0;
   border: 0;
   min-width: 0;
-  font-family: var(--arcade-font-display);
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
   font-smooth: never;
@@ -20,9 +19,6 @@
   padding: 0;
   margin-bottom: 4px;
   color: var(--arcade-cyan);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 .options {
@@ -85,7 +81,7 @@
 
 .input:focus-visible + .dot {
   box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
-    0 0 0 4px var(--arcade-ink), 0 0 0 6px var(--arcade-yellow);
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-yellow);
 }
 
 .input:checked + .dot::after {
@@ -98,9 +94,5 @@
 }
 
 .label {
-  color: var(--arcade-white);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  line-height: 1.4;
+  color: var(--arcade-fg);
 }

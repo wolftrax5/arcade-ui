@@ -4,12 +4,7 @@
   gap: 8px;
   padding: 6px 10px;
   background: var(--arcade-panel);
-  color: var(--arcade-white);
-  font-family: var(--arcade-font-display);
-  font-size: 8px;
-  line-height: 1.4;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  color: var(--arcade-fg);
   white-space: nowrap;
   image-rendering: pixelated;
   -webkit-font-smoothing: none;
