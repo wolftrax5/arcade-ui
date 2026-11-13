@@ -1,0 +1,110 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.label {
+  color: var(--arcade-cyan);
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.row[data-disabled] {
+  opacity: 0.45;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--arcade-cyan);
+  color: var(--arcade-fg-on-accent);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  transform: translateY(0);
+  transition: transform 40ms steps(1, end), box-shadow 40ms steps(1, end),
+    filter 40ms steps(1, end);
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow);
+}
+
+.stepper:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.stepper:focus-visible {
+  outline: none;
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow),
+    0 0 0 4px var(--arcade-bg), 0 0 0 6px var(--arcade-cyan);
+}
+
+.stepper:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: var(--arcade-pixel-border);
+}
+
+.stepper:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.field {
+  position: relative;
+  display: block;
+  background: var(--arcade-panel);
+  box-shadow: var(--arcade-pixel-border), var(--arcade-drop-shadow);
+}
+
+.field[data-focused] {
+  box-shadow: var(--arcade-pixel-border),
+    0 0 0 2px var(--arcade-bg),
+    0 0 0 4px var(--arcade-cyan);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 6px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--arcade-fg);
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  outline: none;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}

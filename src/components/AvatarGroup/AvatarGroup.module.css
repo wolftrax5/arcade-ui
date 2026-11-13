@@ -1,0 +1,17 @@
+.group {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+/* Pull each sibling into the previous one; later siblings paint on top. */
+.group > :not(:first-child) {
+  margin-left: calc(-1 * var(--arcade-avatar-overlap, 10px));
+}
+
+.surplus {
+  color: var(--arcade-fg);
+}

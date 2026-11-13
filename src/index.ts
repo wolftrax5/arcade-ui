@@ -59,3 +59,18 @@ export type {
   TextStyle,
 } from './theme/tokens';
 export type { SoundCue } from './theme/sound';
+
+export { Select } from './components/Select/Select';
+export type { SelectProps, SelectOption } from './components/Select/Select';
+
+export { NumberField } from './components/NumberField/NumberField';
+export type { NumberFieldProps } from './components/NumberField/NumberField';
+
+export { Avatar } from './components/Avatar/Avatar';
+export type { AvatarProps, AvatarVariant } from './components/Avatar/Avatar';
+
+export { AvatarGroup } from './components/AvatarGroup/AvatarGroup';
+export type {
+  AvatarGroupProps,
+  AvatarGroupSpacing,
+} from './components/AvatarGroup/AvatarGroup';
